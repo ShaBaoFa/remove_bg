@@ -1,0 +1,2 @@
+requests
+alibabacloud-sts20150401==1.1.4
