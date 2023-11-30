@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
-from .cloud_service import CloudService
-from .image_processor import ImageProcessor
+from cloud_service import CloudService
+from image_processor import ImageProcessor
 
 
 class ApplicationGUI:

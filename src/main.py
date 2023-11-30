@@ -1,5 +1,5 @@
 import tkinter as tk
-from .application_gui import ApplicationGUI
+from application_gui import ApplicationGUI
 
 
 def main():
@@ -9,7 +9,7 @@ def main():
     root.geometry("600x400")
 
     # Initialize and run the application GUI
-    app = ApplicationGUI(root)
+    ApplicationGUI(root)
     root.mainloop()
 
 
