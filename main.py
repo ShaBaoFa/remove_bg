@@ -10,6 +10,7 @@ import oss2
 from dotenv import load_dotenv, dotenv_values
 import tkinter as tk
 from tkinter import filedialog
+from src.cloud_service import CloudService
 
 
 def get_sts_token() -> list:
@@ -105,7 +106,6 @@ def get_view_url() -> str:
     url = bucket.sign_url('GET', file_name, 60 * 60 * 24 * 365)
     # 在label根据url显示图片
     return url
-
 # 创建UI
 os.environ['OSS_ACCESS_KEY_ID'] = dotenv_values(".env")['OSS_ACCESS_KEY_ID']
 os.environ['OSS_ACCESS_KEY_SECRET'] = dotenv_values(".env")['OSS_ACCESS_KEY_SECRET']

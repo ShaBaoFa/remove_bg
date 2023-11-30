@@ -1,2 +1,6 @@
-requests
+requests~=2.31.0
 alibabacloud-sts20150401==1.1.4
+oss2~=2.18.3
+python-dotenv~=1.0.0
+pillow~=10.1.0
+```
