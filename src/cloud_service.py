@@ -16,6 +16,7 @@ class CloudService:
         self.bucket_name = dotenv_values(".env")['ALIYUN_BUCKET']
         self.role_arn = dotenv_values(".env")['ALIYUN_ROLE_ARN']
         self.last_uploaded_file_name = None
+        self.last_uploaded_file_url = None
 
     def get_sts_token(self) -> dict:
         # Implementation to get STS token using STS credentials
@@ -55,7 +56,13 @@ class CloudService:
             try:
                 print(f"正在上传: {file_path}")
                 # 从file_path中获取文件名
-                file_name = file_path.split('/')[-1]
+                # file_name = file_path.split('/')[-1]
+                # 删除第一个 '/'
+                file_name = file_path[1:]
+                # file_name '\' 替换 '/'
+
+                file_name = file_name.replace('\\', '/')
+
                 bucket.put_object(file_name, file_obj)
                 self.last_uploaded_file_name = file_name
                 return True
@@ -73,6 +80,5 @@ class CloudService:
         auth = oss2.Auth(self.oss_access_key_id, self.oss_access_key_secret)
         bucket = oss2.Bucket(auth, self.endpoint, self.bucket_name)
         # ... signed URL generation logic ...
-        return bucket.sign_url('GET', object_name, expiration)
-
+        self.last_uploaded_file_url = bucket.sign_url('GET', object_name, expiration)
     # Additional methods related to cloud service interactions
