@@ -5,4 +5,4 @@
 /src/remove_bg_with_oss.egg-info
 *.log
 /*.png
-.gitignore
+/.gitignore
