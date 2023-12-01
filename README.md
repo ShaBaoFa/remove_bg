@@ -27,4 +27,5 @@ pip install -r requirements.txt
 python -m src.main
 ```
 选择图片，然后就会自动上传到oss，然后选择需要替换的背景（默认:透明）自动调用remove.bg的api，图片（默认:no-bg.png）生成在根目录
+
 ![img.png](removebg/img.png)
